@@ -43,7 +43,7 @@ public class SmtpHelper
             .Done();
     }
     
-    [Fact(DisplayName = "Simple send test")]
+    [Fact(DisplayName = "Simple send")]
     public void TestSend()
     {
         GetMailHeader()
@@ -52,7 +52,7 @@ public class SmtpHelper
             .Send();
     }
     
-    [Fact(DisplayName = "Send Html body send test")]
+    [Fact(DisplayName = "Send Html body")]
     public void TestHtmlSend()
     {
         GetMailHeader()
@@ -72,6 +72,22 @@ public class SmtpHelper
         AlternativeGetMailHeader()
             .Subject("Test 2")
             .Body("", false)
+            .Send();
+    }
+
+    [Fact(DisplayName = "Send to multiple people")]
+    public void TestSendToMultiple()
+    {
+        MailSender
+            .Connect(_mailSenderConfiguration)
+            .From("test@test.com", "Test")
+            .SendTo("test1@test.com", "Test 1")
+            .SendTo("a@a.com", "A")
+            .SendTo("b@b.com", "B")
+            .SendTo("b@c.com", "C")
+            .Done()
+            .Subject("Test")
+            .Body("Test", false)
             .Send();
     }
 }
