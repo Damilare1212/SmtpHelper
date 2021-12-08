@@ -34,6 +34,15 @@ public class SmtpHelper
             .Done();
     }
     
+    private IMailContent AlternativeGetMailHeader()
+    {
+        return MailSender
+            .Connect(_mailSenderConfiguration)
+            .From("another@test.com", "Another")
+            .SendTo("another1@test.com", "Another 1")
+            .Done();
+    }
+    
     [Fact(DisplayName = "Simple send test")]
     public void TestSend()
     {
@@ -49,6 +58,20 @@ public class SmtpHelper
         GetMailHeader()
             .Subject("Test HTML")
             .Body("<h1>Test h1</h1> <strong>Test<strong>", true)
+            .Send();
+    }
+    
+    [Fact(DisplayName = "Multiple sending methods")]
+    public void TestMultipleSenders()
+    {
+        GetMailHeader()
+            .Subject("Test")
+            .Body("", false)
+            .Send();
+        
+        AlternativeGetMailHeader()
+            .Subject("Test 2")
+            .Body("", false)
             .Send();
     }
 }
