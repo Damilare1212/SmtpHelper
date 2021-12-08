@@ -2,9 +2,9 @@
 
 public class MailSenderConfiguration
 {
-    public string Host { get; set; }
+    public string Host { get; set; } = null!;
     public int Port { get; set; }
     public bool UseSsl { get; set; }
-    public string User { get; set; }
-    public string Password { get; set; }
+    public string User { get; set; } = null!;
+    public string Password { get; set; } = null!;
 }
