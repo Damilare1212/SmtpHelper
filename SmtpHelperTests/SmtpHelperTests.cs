@@ -2,6 +2,7 @@ using Xunit;
 using MA.SmtpHelper;
 using MA.SmtpHelper.Models;
 using Microsoft.Extensions.Configuration;
+using MimeKit;
 
 namespace SmtpHelperTests;
 
@@ -85,6 +86,24 @@ public class SmtpHelper
             .SendTo("a@a.com", "A")
             .SendTo("b@b.com", "B")
             .SendTo("b@c.com", "C")
+            .Done()
+            .Subject("Test")
+            .Body("Test", false)
+            .Send();
+    }
+    
+    [Fact(DisplayName = "Send to multiple people list")]
+    public void TestSendToMultipleList()
+    {
+        MailSender
+            .Connect(_mailSenderConfiguration)
+            .From("test@test.com", "Test")
+            .SendToList(new []
+            {
+                new MailboxAddress("A", "a@a.com"),
+                new MailboxAddress("B", "b@b.com"),
+                new MailboxAddress("C", "c@c.com")
+            })
             .Done()
             .Subject("Test")
             .Body("Test", false)
