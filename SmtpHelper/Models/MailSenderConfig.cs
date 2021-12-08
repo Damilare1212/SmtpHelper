@@ -1,4 +1,6 @@
-﻿namespace MA.SmtpHelper.Models;
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable ClassNeverInstantiated.Global
+namespace MA.SmtpHelper.Models;
 
 public class MailSenderConfiguration
 {
