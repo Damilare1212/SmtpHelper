@@ -6,6 +6,16 @@
         <Nullable>enable</Nullable>
         <RootNamespace>MA.SmtpHelper</RootNamespace>
         <AssemblyName>MA.SmtpHelper</AssemblyName>
+        <Title>Smtp Helper</Title>
+        <Authors>Michael Armani</Authors>
+        <Description>Chain of responsability like Stmp mail sender</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>MichaelArmani.SmtpHelper</PackageId>
+        <Copyright></Copyright>
+        <PackageProjectUrl>https://github.com/armanimichael/SmtpHelper</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/armanimichael/SmtpHelper/blob/dev/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/armanimichael/SmtpHelper</RepositoryUrl>
+        <PackageTags>smtp, mail</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
