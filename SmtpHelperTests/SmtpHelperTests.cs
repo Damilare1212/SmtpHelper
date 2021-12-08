@@ -109,4 +109,17 @@ public class SmtpHelper
             .Body("Test", false)
             .Send();
     }
+    
+    [Fact(DisplayName = "Send to bcc")]
+    public void TestSendToBcc()
+    {
+        MailSender
+            .Connect(_mailSenderConfiguration)
+            .From("test@test.com", "Test")
+            .SendToBcc("a@a.com", "A")
+            .Done()
+            .Subject("Test")
+            .Body("Test", false)
+            .Send();
+    }
 }
