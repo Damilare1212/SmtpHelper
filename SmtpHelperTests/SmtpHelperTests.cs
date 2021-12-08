@@ -122,4 +122,22 @@ public class SmtpHelper
             .Body("Test", false)
             .Send();
     }
+    
+    [Fact(DisplayName = "Send to bcc list")]
+    public void TestSendToBccList()
+    {
+        MailSender
+            .Connect(_mailSenderConfiguration)
+            .From("test@test.com", "Test")
+            .SendToListBcc(new []
+            {
+                new MailboxAddress("A", "a@a.com"),
+                new MailboxAddress("B", "b@b.com"),
+                new MailboxAddress("C", "c@c.com")
+            })
+            .Done()
+            .Subject("Test")
+            .Body("Test", false)
+            .Send();
+    }
 }
