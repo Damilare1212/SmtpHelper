@@ -7,7 +7,7 @@ namespace SmtpHelperTests;
 
 public class SmtpHelper
 {
-    private MailSenderConfiguration _mailSenderConfiguration;
+    private readonly MailSenderConfiguration _mailSenderConfiguration;
 
     public SmtpHelper()
     {
