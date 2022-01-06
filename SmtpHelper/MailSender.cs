@@ -89,7 +89,7 @@ public class MailSender : IMailFrom, IMailTo, IMailContent, IMailBody, IMailSend
         return this;
     }
 
-    public IMailTo SendToList(IEnumerable<MailboxAddress> emails)
+    public IMailTo SendToList(MailboxAddress[] emails)
     {
         _tos = _tos.Concat(emails).ToList();
         return this;
@@ -102,7 +102,8 @@ public class MailSender : IMailFrom, IMailTo, IMailContent, IMailBody, IMailSend
         return this;
     }
 
-    public IMailTo SendToListBcc(IEnumerable<MailboxAddress> emails)
+    
+    public IMailTo SendToListBcc(params MailboxAddress[] emails)
     {
         _bccs = _bccs.Concat(emails).ToList();
         return this;
